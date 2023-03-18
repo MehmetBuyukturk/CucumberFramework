@@ -9,7 +9,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
-public class DriverWeb {
+public class Driver {
 
     private static WebDriver driver;
 
@@ -26,7 +26,9 @@ public class DriverWeb {
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    ChromeOptions ops = new ChromeOptions();
+                    ops.addArguments("--remote-allow-origins=*");
+                    driver = new ChromeDriver(ops);
             }
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().window().maximize();
