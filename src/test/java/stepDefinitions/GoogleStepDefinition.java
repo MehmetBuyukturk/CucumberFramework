@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.GoogleHomePage;
 import utilities.ConfigReader;
-import utilities.DriverWeb;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class GoogleStepDefinition {
@@ -14,7 +14,7 @@ public class GoogleStepDefinition {
 
     @Given("Google anasayfasina git")
     public void google_anasayfasina_git() {
-        DriverWeb.getDriver().get(ConfigReader.getProperty("googleURL"));
+        Driver.getDriver().get(ConfigReader.getProperty("googleURL"));
     }
     @Given("SearchBox'a {string} yi yaz ve enter'a bas")
     public void search_box_a_yi_yaz_ve_enter_a_bas(String string) {
@@ -34,6 +34,6 @@ public class GoogleStepDefinition {
 
     @Given("Browser'i kapat")
     public void Browseri_kapat() {
-        DriverWeb.quit();
+        Driver.quit();
     }
 }
